@@ -1,0 +1,10 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.FakeCall" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="smallTextColor">#B3FFFFFF</item>
+        <item name="callButtonBg">#242856</item>
+        <item name="messageButtonText">#FFFFFF</item>
+        <!-- Customize your dark theme here. -->
+        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+    </style>
+</resources>

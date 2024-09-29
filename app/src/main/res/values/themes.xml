@@ -1,0 +1,13 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.FakeCall" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">#66000000</item>
+        <item name="smallTextColor">#80000000</item>
+        <item name="callButtonBg">#FFFFFF</item>
+        <item name="messageButtonText">#000000</item>
+        <!-- Customize your light theme here. -->
+        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+    </style>
+
+    <style name="Theme.FakeCall" parent="Base.Theme.FakeCall" />
+</resources>

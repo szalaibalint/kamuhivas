@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="smallTextColor" format="color"/>
+    <attr name="callButtonBg" format="color"/>
+    <attr name="messageButtonText" format="color"/>
+</resources>
