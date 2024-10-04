@@ -3,6 +3,9 @@ package hu.szalaj.fakecall;
 import static android.view.View.SYSTEM_UI_FLAG_LAYOUT_STABLE;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
+import android.media.Ringtone;
+import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
@@ -25,6 +28,8 @@ import com.bumptech.glide.Glide;
 
 public class CallActivity extends AppCompatActivity {
     ImageView imageView;
+    /*private MediaPlayer mediaPlayer;*/
+    private Ringtone ringtone;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,12 +38,23 @@ public class CallActivity extends AppCompatActivity {
 
         makeFullScreen();
 
+        // Get the current default ringtone URI
+        Uri ringtoneUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_RINGTONE);
+
+        // Initialize the ringtone with the URI
+        ringtone = RingtoneManager.getRingtone(this, ringtoneUri);
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.call), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
 
             return insets;
         });
+
+
+
+        playSound();
+
 
         Intent intent = getIntent();
         String nameData = intent.getStringExtra("nameData");
@@ -82,7 +98,48 @@ public class CallActivity extends AppCompatActivity {
         // Start animations
         animatedButton.startAnimation(upDownAnimation);
         animatedButton.startAnimation(shakeAnimation);
+
+        // Set an OnClickListener
+        animatedButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                pickUpCall(nameData, photoStr);
+            }
+        });
     }
+    private void playSound(){
+        /*mediaPlayer = MediaPlayer.create(this, R.raw.testaudio); // Replace 'sound' with your file name
+        if (mediaPlayer != null) {
+            mediaPlayer.start(); // Start playing the sound
+        }*/
+        if (ringtone != null && !ringtone.isPlaying()) {
+            ringtone.play();  // Play the ringtone
+        }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        /*if (mediaPlayer != null) {
+            mediaPlayer.release(); // Release resources when done
+            mediaPlayer = null;
+        }*/
+        if (ringtone != null && ringtone.isPlaying()) {
+            ringtone.stop();  // Stop the ringtone
+        }
+    }
+
+    private void stopAudio(){
+        /*if (mediaPlayer != null) {
+            mediaPlayer.release(); // Release resources when done
+            mediaPlayer = null;
+        }*/
+        if (ringtone != null && ringtone.isPlaying()) {
+            ringtone.stop();  // Stop the ringtone
+        }
+    }
+
+
     @Override
     protected void onResume() {
         super.onResume();
@@ -97,5 +154,14 @@ public class CallActivity extends AppCompatActivity {
                         | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
                         | View.SYSTEM_UI_FLAG_LAYOUT_STABLE
         );
+    }
+
+    private void pickUpCall(String nameData, String photoStr){
+        stopAudio();
+        Intent intent = new Intent(this, InCallActivity.class);
+        intent.putExtra("nameData", nameData);
+        intent.putExtra("photo", photoStr);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
     }
 }

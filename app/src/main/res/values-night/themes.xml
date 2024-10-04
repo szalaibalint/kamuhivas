@@ -4,6 +4,16 @@
         <item name="smallTextColor">#B3FFFFFF</item>
         <item name="callButtonBg">#242856</item>
         <item name="messageButtonText">#FFFFFF</item>
+        <item name="buttonsBgColor">#1D1D1D</item>
+        <item name="smallBtnBg">#66000000</item>
+
+        <item name="keypadP">@mipmap/keypadw</item>
+        <item name="muteP">@mipmap/mutew</item>
+        <item name="speakerP">@mipmap/volumew</item>
+        <item name="moreP">@mipmap/morew</item>
+        <item name="endcallP">@mipmap/endcallb</item>
+
+        <item name="endcallC">#F0F0F0</item>
         <!-- Customize your dark theme here. -->
         <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
     </style>

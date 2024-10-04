@@ -21,6 +21,8 @@
         tools:targetApi="31">
         <activity android:name=".CallActivity">
         </activity>
+        <activity android:name=".InCallActivity">
+        </activity>
         <activity
             android:name=".MainActivity"
             android:exported="true">

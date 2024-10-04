@@ -5,6 +5,16 @@
         <item name="smallTextColor">#80000000</item>
         <item name="callButtonBg">#FFFFFF</item>
         <item name="messageButtonText">#000000</item>
+        <item name="buttonsBgColor">#F0F0F0</item>
+        <item name="smallBtnBg">#FFFFFF</item>
+
+        <item name="keypadP">@mipmap/keypad</item>
+        <item name="muteP">@mipmap/mute</item>
+        <item name="speakerP">@mipmap/volume</item>
+        <item name="moreP">@mipmap/more</item>
+        <item name="endcallP">@mipmap/endcall</item>
+
+        <item name="endcallC">#F45A5A</item>
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
     </style>

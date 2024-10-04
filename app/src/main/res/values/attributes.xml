@@ -3,4 +3,12 @@
     <attr name="smallTextColor" format="color"/>
     <attr name="callButtonBg" format="color"/>
     <attr name="messageButtonText" format="color"/>
+    <attr name="buttonsBgColor" format="color"/>
+    <attr name="smallBtnBg" format="color"/>
+    <attr name="keypadP" format="reference"/>
+    <attr name="muteP" format="reference"/>
+    <attr name="speakerP" format="reference"/>
+    <attr name="moreP" format="reference"/>
+    <attr name="endcallP" format="reference"/>
+    <attr name="endcallC" format="color"/>
 </resources>
